@@ -1,3 +1,5 @@
+import { typographyVariants } from './typographyVariants';
+
 export const colors = {
     background: {
       light: {
@@ -41,7 +43,8 @@ export const colors = {
   
   export default {
     colors,
-    borderRadius: '12px',
+    typographyVariants,
+    borderRadius: '8px',
     transition: '200ms ease-in-out',
     fontFamily: '\'Rubik\', sans-serif',
   };
