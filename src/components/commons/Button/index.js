@@ -14,6 +14,7 @@ const ButtonDefault = css`
   background-color: ${({ theme, variant }) => get(theme, `colors.${variant}.color`)};
 `;
 
+// eslint-disable-next-line import/prefer-default-export
 export const Button = styled.button`
   border: 0;
   cursor: pointer;
@@ -31,6 +32,16 @@ export const Button = styled.button`
       ${TextStyleVariants.paragraph1}
     `,
   })}
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .2;
+  }
+  
+  ${({ fullWidth }) => fullWidth && css`
+    width: 100%;
+  `};
+
   ${propToStyle('margin')}
   ${propToStyle('display')}
   ${({ ghost }) => (ghost ? ButtonGhost : ButtonDefault)}
