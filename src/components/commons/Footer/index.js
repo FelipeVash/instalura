@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import FooterWrapper from './styles/FooterWrapper';
 
 export default function Footer(props) {
