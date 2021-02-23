@@ -14,4 +14,5 @@ export const Box = styled.div`
     ${propToStyle('backgroundPosition')}
     ${propToStyle('boxShadow')}
     ${propToStyle('padding')}
+    ${propToStyle('marginTop')}
 `;
