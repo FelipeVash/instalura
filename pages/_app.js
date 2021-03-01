@@ -1,7 +1,13 @@
+/* eslint-disable linebreak-style */
+/* eslint-disable react/jsx-props-no-spreading */
+/* eslint-disable linebreak-style */
+/* eslint-disable react/prop-types */
+/* eslint-disable linebreak-style */
+/* eslint-disable react/react-in-jsx-scope */
 import Head from 'next/head';
-import { ThemeProvider } from 'styled-components'
+import { ThemeProvider } from 'styled-components';
 import theme from '../src/theme';
-import GlobalStyle  from '../src/theme/GlobalStyle';
+import GlobalStyle from '../src/theme/GlobalStyle';
 
 export default function App({ Component, pageProps }) {
   return (
@@ -19,5 +25,5 @@ export default function App({ Component, pageProps }) {
         <Component {...pageProps} />
       </ThemeProvider>
     </>
-  )
+  );
 }
