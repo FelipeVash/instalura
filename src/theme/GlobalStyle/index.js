@@ -17,6 +17,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     min-height: 100vh;
     width: 100%;
+    background-color: ${({ theme }) => theme.colors.modes.dark.backgroundColor};
   }
   #__next {
     flex: 1;

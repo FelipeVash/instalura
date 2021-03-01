@@ -16,8 +16,11 @@ const FooterWrapper = styled.footer`
     width: 58px;
     margin-right: 23px;
   }
+  p {
+    color: #FFFFFF;
+  }
   a {
-    color: #ff0066;
+    color: #FFFFFF;
     text-decoration: none;
     transition: .3s;
     &:hover,
