@@ -37,7 +37,9 @@ export const colors = {
     },
   },
   modes: {
-    dark: {},
+    dark: {
+      backgroundColor: '#191919',
+    },
   },
 };
 

@@ -65,13 +65,13 @@ export default function Home() {
               <Text
                 variant="title"
                 tag="h1"
-                color="tertiary.main"
+                color="primary.main"
                 textAlign={{
                   xs: 'center',
                   md: 'left',
                 }}
               >
-                Compartilhe momentos e conecte-se com amigos
+                Compartilhe seu Portfolio de forma prática e intuitiva
               </Text>
               <Text
                 variant="paragraph1"
@@ -82,8 +82,10 @@ export default function Home() {
                   md: 'left',
                 }}
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industrys standard dummy text ever since the 1500s.
+                O Instafolio é uma aplicação inovadora para divulgar
+                seu portfolio de qualquer área de trabalho.
+                Siga artistas, colegas de trabalho e empresas.
+                Descubra novas tendências e matenha-se atualizado sempre!
               </Text>
 
               <Button
