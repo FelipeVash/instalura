@@ -28,14 +28,14 @@ export default function App({ Component, pageProps }) {
         <meta property="og:url" content="https://instafolio.vercel.app/" />
         <meta property="og:title" content="Promova seus trabalhos e conheça outros profissionais!" />
         <meta property="og:description" content="O Instafolio é uma ferramenta social para compartilhar, curtir, comentar o seu portfolio artístico/profissional e trocar experiências com mais pessoas da sua e de outras áreas de seu interesse." />
-        <meta property="og:image" content="" />
+        <meta property="og:image" content="public/images/sitepreview.jpg" />
 
         {/* <!-- Twitter --> */}
         <meta property="twitter:card" content="summary_large_image" />
         <meta property="twitter:url" content="https://instafolio.vercel.app/" />
         <meta property="twitter:title" content="Promova seus trabalhos e conheça outros profissionais!" />
         <meta property="twitter:description" content="O Instafolio é uma ferramenta social para compartilhar, curtir, comentar o seu portfolio artístico/profissional e trocar experiências com mais pessoas da sua e de outras áreas de seu interesse." />
-        <meta property="twitter:image" content="" />
+        <meta property="twitter:image" content="public/images/sitepreview.jpg" />
 
       </Head>
       <ThemeProvider theme={theme}>
