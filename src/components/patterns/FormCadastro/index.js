@@ -5,7 +5,7 @@ import successAnimation from './animations/success.json';
 import errorAnimation from './animations/error.json';
 import { Grid } from '../../layout/Grid';
 import { Box } from '../../layout/Box';
-import { Button } from '../../commons/Button';
+import Button from '../../commons/Button';
 import TextField from '../../forms/TextField';
 import Text from '../../foundation/Text';
 
@@ -73,7 +73,7 @@ function FormContent() {
       <Text
         variant="title"
         tag="h1"
-        color="tertiary.main"
+        color="primary.main"
       >
         Pronto para saber da vida dos outros?
       </Text>
@@ -173,7 +173,7 @@ export default function FormCadastro({ propsDoModal }) {
             xs: '16px',
             md: '85px',
           }}
-          backgroundColor="white"
+          backgroundColor="#191919E6"
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...propsDoModal}
         >
