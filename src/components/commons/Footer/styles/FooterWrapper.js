@@ -15,6 +15,7 @@ const FooterWrapper = styled.footer`
   img {
     width: 58px;
     margin-right: 23px;
+    filter: invert(1);
   }
   p {
     color: #FFFFFF;

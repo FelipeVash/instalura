@@ -173,7 +173,7 @@ export default function FormCadastro({ propsDoModal }) {
             xs: '16px',
             md: '85px',
           }}
-          backgroundColor="#191919E6"
+          backgroundColor="#191919F2"
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...propsDoModal}
         >

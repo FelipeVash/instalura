@@ -29,10 +29,10 @@ export const colors = {
   tertiary: {
     main: {
       color: '#FFF',
-      contrastText: '#fff',
+      contrastText: '#FFF',
     },
     light: {
-      color: '#FFF',
+      color: '#FFFFFF',
       contrastText: '#fff',
     },
   },
