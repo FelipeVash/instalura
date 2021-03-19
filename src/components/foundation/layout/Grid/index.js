@@ -43,6 +43,7 @@ export const Grid = {
     ${propToStyle('justifyContent')}
     ${propToStyle('marginBottom')}
     ${propToStyle('flexDirection')}
+    ${propToStyle('alignItems')}
   `,
   Col: styled.div`
     padding-right: 16px;
