@@ -15,6 +15,7 @@ const FooterWrapper = styled.footer`
   img {
     width: 58px;
     margin-right: 23px;
+    filter: hue-rotate(140deg) brightness(110%) saturate(900%);
   }
   p {
     color: #FFFFFF;

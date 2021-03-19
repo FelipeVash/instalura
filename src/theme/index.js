@@ -28,11 +28,11 @@ export const colors = {
   },
   tertiary: {
     main: {
-      color: '#070C0E',
-      contrastText: '#fff',
+      color: '#FFF',
+      contrastText: '#FFF',
     },
     light: {
-      color: '#88989E',
+      color: '#FFFFFF',
       contrastText: '#fff',
     },
   },
