@@ -98,16 +98,3 @@ export default websitePageHOC(HomeScreen, {
     },
   },
 });
-
-/* export default function Home() {
-  return (
-    <WebsitePageWrapper
-      menuProps={
-        display: true,
-      },
-    >
-      <HomeScreen />
-    </WebsitePageWrapper>
-  );
-}
- */

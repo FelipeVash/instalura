@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@crello/react-lottie": "0.0.11",
-    "framer-motion": "^3.6.7",
-    "lodash": "^4.17.20",
+    "framer-motion": "^3.10.6",
+    "hosted-git-info": "^4.0.2",
+    "lodash": "^4.17.21",
     "next": "latest",
+    "postcss": "^8.2.15",
     "prop-types": "^15.7.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
@@ -27,7 +29,8 @@
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "shelljs": "^0.8.4"
   },
   "license": "MIT"
 }
