@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types *//* eslint-disable linebreak-style */
-import React from 'react';
+
 import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import { Grid } from '../src/components/foundation/layout/Grid';
