@@ -2,7 +2,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 /* eslint-disable linebreak-style */
 import React from 'react';
-teste do teste
 import Document from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
