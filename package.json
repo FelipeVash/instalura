@@ -25,6 +25,8 @@
     "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
     "babel-plugin-styled-components": "^1.8.0",
     "cz-conventional": "0.0.2",
     "eslint": "^7.19.0",
