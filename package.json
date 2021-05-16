@@ -7,7 +7,8 @@
     "export": "next build && next export",
     "start": "next start",
     "lint": "eslint --ignore-path .gitignore .",
-    "commit": "cz"
+    "commit": "cz",
+    "test:integration:open": "cypress open"
   },
   "dependencies": {
     "@crello/react-lottie": "0.0.11",
@@ -28,9 +29,11 @@
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "babel-plugin-styled-components": "^1.8.0",
+    "cypress": "^7.3.0",
     "cz-conventional": "0.0.2",
     "eslint": "^7.19.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-cypress": "^2.11.3",
     "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.22.0",
