@@ -1,6 +1,6 @@
 /* eslint-disable import/prefer-default-export */
 import { css } from 'styled-components';
-import { breakpointsMedia } from './breakpointsMedia';
+import { breakpointsMedia } from '../breakpointsMedia';
 
 export function propToStyle(propName) {
   return (props) => {
