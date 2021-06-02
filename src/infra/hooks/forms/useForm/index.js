@@ -1,14 +1,14 @@
+/* eslint-disable no-console */
 /* eslint-disable no-restricted-globals */
 import React from 'react';
 
 export default function useForm({ initialValues, onSubmit }) {
-
   const [values, setValues] = React.useState(initialValues);
 
   const [isFormDisabled, setIsFormDisabled] = React.useState(true);
 
   React.useEffect(() => {
-    if(values.usuario.length > 0) {
+    if (values.usuario.length > 0) {
       console.log('Is field valid!');
       setIsFormDisabled(false);
     } else {
