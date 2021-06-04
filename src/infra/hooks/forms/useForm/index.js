@@ -2,19 +2,35 @@
 /* eslint-disable no-restricted-globals */
 import React from 'react';
 
-export default function useForm({ initialValues, onSubmit }) {
+export default function useForm({
+  initialValues,
+  onSubmit,
+  validateSchema,
+}) {
   const [values, setValues] = React.useState(initialValues);
 
   const [isFormDisabled, setIsFormDisabled] = React.useState(true);
+  const [errors, setErrors] = React.useState({});
+  const [touched, setTouchedFields] = React.useState({});
 
   React.useEffect(() => {
-    if (values.usuario.length > 0) {
-      console.log('Is field valid!');
-      setIsFormDisabled(false);
-    } else {
-      console.log('Is field invalid!');
-      setIsFormDisabled(true);
-    }
+    validateSchema(values)
+      .then(() => {
+        setIsFormDisabled(false);
+        setErrors({});
+      })
+      .catch((err) => {
+        const formatedErrors = err.inner.reduce((errorObjectAcc, currentError) => {
+          const fieldName = currentError.path;
+          const errorMessage = currentError.message;
+          return {
+            ...errorObjectAcc,
+            [fieldName]: errorMessage,
+          };
+        }, {});
+        setErrors(formatedErrors);
+        setIsFormDisabled(true);
+      });
   }, [values]);
 
   return {
@@ -32,6 +48,17 @@ export default function useForm({ initialValues, onSubmit }) {
         [fieldName]: value,
       }));
     },
+    // Validação do form
     isFormDisabled,
+    errors,
+    touched,
+    handleBlur(event) {
+      const fieldName = event.target.getAttribute('name');
+
+      setTouchedFields({
+        ...touched,
+        [fieldName]: true,
+      });
+    },
   };
 }
