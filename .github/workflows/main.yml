@@ -63,6 +63,6 @@ jobs:
       - name: Install Packages
         run: yarn --prefer-offline
 
-      - name: Run Unit Tests
-        run: yarn test
+      - name: Run Integration Tests
+        run: yarn test:integration:build
 
