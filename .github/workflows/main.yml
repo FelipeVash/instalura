@@ -39,3 +39,30 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+
+  unit_tests:
+    name: Unit Testes
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14.15.0'
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+
+      # Commands that will run:
+      - name: Install Packages
+        run: yarn --prefer-offline
+
+      - name: Run Unit Tests
+        run: yarn test
+
