@@ -90,5 +90,5 @@ jobs:
         run: yarn --prefer-offline
 
       - name: Run Integration Tests
-        run: yarn test:instegration:build
+        run: yarn test:integration:build
 
