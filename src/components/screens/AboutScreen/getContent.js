@@ -1,16 +1,16 @@
-import { gql } from 'graphql-request';
-import { CMSGraphQLClient } from '../../../infra/cms/CMSGraphQLClient';
+import { CMSGraphQLClient, gql } from '../../../infra/cms/CMSGraphQLClient';
 
-export default async function getContent() {
+// eslint-disable-next-line import/prefer-default-export
+export async function getContent({ preview }) {
   const query = gql`
-      query {
-        pageSobre {
-          pageTitle
-          pageDescription
-        }
+    query {
+      pageSobre {
+        pageTitle
+        pageDescription
       }
+    }
   `;
-  const client = CMSGraphQLClient();
+  const client = CMSGraphQLClient({ preview });
 
   const response = await client.query({ query });
 
