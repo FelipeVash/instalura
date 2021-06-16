@@ -4,6 +4,8 @@ import { Box } from '../../foundation/layout/Box';
 import { Grid } from '../../foundation/layout/Grid';
 import Text from '../../foundation/Text';
 
+export { getContent } from './getContent';
+
 export default function AboutScreen({ messages }) {
   return (
     <Box
@@ -25,9 +27,8 @@ export default function AboutScreen({ messages }) {
               variant="title"
               tag="h2"
               color="tertiary.main"
-            >
-              {messages.pageSobre.pageTitle}
-            </Text>
+              cmsKey="pageSobre.pageTitle"
+            />
 
             <Box
               dangerouslySetInnerHTML={{
