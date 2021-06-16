@@ -1,9 +1,15 @@
-import React from 'react';
+import AboutScreen from '../src/components/screens/AboutScreen';
+import getContent from '../src/components/screens/AboutScreen/getContent';
+import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
-export default function sobre() {
-  return (
-    <div>
-      <p>Página Sobre</p>
-    </div>
-  );
+export async function getStaticProps() {
+  const messages = await getContent();
+
+  return {
+    props: {
+      messages,
+    },
+  };
 }
+
+export default websitePageHOC(AboutScreen);
