@@ -32,7 +32,7 @@ describe('loginService', () => {
           }, setCookieModule, HttpClientModule);
 
           expect(setCookieModule).toHaveBeenCalledWith(
-            null, 'APP_TOKEN', token, {
+            null, 'LOGIN_COOKIE_APP_TOKEN', token, {
               path: '/',
               maxAge: 604800,
             },
