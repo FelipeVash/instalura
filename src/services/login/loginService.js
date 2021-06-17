@@ -5,7 +5,7 @@ import { HttpClient } from '../../infra/http/HttpClient';
 
 const BASE_URL = isStagingEnv
   // Back End de Dev
-  ? 'https://instalura-api-git-master.omariosouto.vercel.app'
+  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
   // Back end de Prod
   : 'https://instalura-api.omariosouto.vercel.app';
 
