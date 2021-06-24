@@ -1,7 +1,12 @@
+import React from 'react';
 import LoginScreen from '../../src/components/screens/app/LoginScreen';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 
-export default websitePageHOC(LoginScreen, {
+function LoginPage() {
+  return <LoginScreen />;
+}
+
+export default websitePageHOC(LoginPage, {
   pageWrapperProps: {
     seoProps: {
       headTitle: 'Login',
