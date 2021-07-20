@@ -52,7 +52,7 @@ function HomeScreen() {
                   md: 'left',
                 }}
               >
-                O Instafolio é uma aplicação inovadora para divulgar
+                O Instalura é uma aplicação inovadora para divulgar
                 seu portfolio de qualquer área de trabalho.
                 Siga artistas, colegas de trabalho e empresas.
                 Descubra novas tendências e matenha-se atualizado sempre!

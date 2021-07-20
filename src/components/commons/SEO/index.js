@@ -5,13 +5,13 @@ import PropTypes from 'prop-types';
 
 export default function SEO({ headTitle }) {
   const hasHeadTitle = Boolean(headTitle);
-  const baseTitle = 'Instafolio || Promova seus trabalhos e conheça outros profissionais!';
+  const baseTitle = 'Instalura || Promova seus trabalhos e conheça outros profissionais!';
   const title = hasHeadTitle
     ? (`${headTitle} | ${baseTitle}`)
     : baseTitle;
-  const description = 'O Instafolio é uma ferramenta social para compartilhar, curtir, comentar o seu portfolio artístico/profissional e trocar experiências com mais pessoas da sua e de outras áreas de seu interesse.';
+  const description = 'O Instalura é uma ferramenta social para compartilhar, curtir, comentar o seu portfolio artístico/profissional e trocar experiências com mais pessoas da sua e de outras áreas de seu interesse.';
   const image = '/public/images/sitepreview.jpg';
-  const urlBase = 'https://instafolio.vercel.app/';
+  const urlBase = 'https://instalura.felipevash.vercel.app';
 
   return (
     <Head>
