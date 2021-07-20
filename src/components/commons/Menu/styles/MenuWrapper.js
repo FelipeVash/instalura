@@ -29,23 +29,37 @@ export const MenuWrapper = styled.nav`
       max-width: 1222px;
     `,
   })}
+
+  ${({ hasActiveSession }) => hasActiveSession && breakpointsMedia({
+    xs: css`
+        background-color: ${({ theme }) => theme.colors.modes.dark.backgroundColor};
+        padding-bottom: 16px;
+        border-bottom: 1px solid ${({ theme }) => theme.colors.borders.main.color};
+      `,
+    md: css`
+        background-color: ${({ theme }) => theme.colors.modes.dark.backgroundColor};
+        padding-bottom: 32px;
+      `,
+  })}
 `;
 
 MenuWrapper.LeftSide = styled.div`
   padding: 0;
   margin: 0;
   order: 1;
+  ${({ hasActiveSession }) => hasActiveSession && breakpointsMedia({
+    xs: css`
+      width: 100%;
+      text-align: center;
+    `,
+  })}
   ${breakpointsMedia({
     md: css`
         width: 131px;
         height: 32px;
+        order: initial;
+        padding-right: 16px;
       `,
-  })}
-  ${breakpointsMedia({
-    md: css`
-      order: initial;
-      padding-right: 16px;
-    `,
   })}
 `;
 

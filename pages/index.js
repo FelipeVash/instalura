@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types *//* eslint-disable linebreak-style */
-import React from 'react';
+import React, { useContext } from 'react';
 import Text from '../src/components/foundation/Text';
 import Button from '../src/components/commons/Button';
 import { Grid } from '../src/components/foundation/layout/Grid';
@@ -8,7 +8,7 @@ import { Box } from '../src/components/foundation/layout/Box';
 import websitePageHOC from '../src/components/wrappers/WebsitePage/hoc';
 
 function HomeScreen() {
-  const websitePageContext = React.useContext(WebsitePageContext);
+  const websitePageContext = useContext(WebsitePageContext);
 
   return (
     <Box
@@ -95,6 +95,9 @@ export default websitePageHOC(HomeScreen, {
       backgroundImage: 'url(/images/bubbles.svg)',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'bottom right',
+    },
+    menuProps: {
+      display: true,
     },
   },
 });

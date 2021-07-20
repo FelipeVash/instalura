@@ -3,6 +3,7 @@ import React from 'react';
 import FeedScreen from '../../src/components/screens/app/FeedScreen';
 import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
 import { authService } from '../../src/services/auth/authService';
+import { userService } from '../../src/services/user/userService';
 
 function FeedPage({ user }) {
   return <FeedScreen user={user} />;
@@ -23,15 +24,15 @@ export async function getServerSideProps(ctx) {
 
   if (hasActiveSession) {
     const session = await auth.getSession();
-    // const profilePage = await userService.getProfilePage(ctx);
+    const profilePage = await userService.getProfilePage(ctx);
 
     return {
       props: {
         user: {
           ...session,
-          // ...profilePage.user,
+          ...profilePage.user,
         },
-        // posts: profilePage,
+        posts: profilePage,
       },
     };
   }

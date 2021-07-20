@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Avatar } from '../../../commons/Avatar';
@@ -12,8 +13,8 @@ export default function UserScreen({ userInfo, posts: serverPosts }) {
   const { posts, setPosts } = React.useContext(UserContext);
 
   React.useEffect(() => {
-    setPosts(serverPosts.reverse());
-  }, []);
+    setPosts(serverPosts);
+  }, [posts]);
 
   return (
     <Grid.Container
@@ -25,8 +26,6 @@ export default function UserScreen({ userInfo, posts: serverPosts }) {
       >
         <Grid.Col
           value={{ xs: 3, md: 2, lg: 3 }}
-          // offset={{ md: 3 }}
-          // padding={0}
         >
           <Box
             width={{
@@ -44,21 +43,20 @@ export default function UserScreen({ userInfo, posts: serverPosts }) {
           </Box>
         </Grid.Col>
         <UserStats
-          statsCount={userInfo.totalPosts}
+          statsCount={userInfo.userInfo.totalPosts}
           statsTitle="Publicações"
         />
         <UserStats
-          statsCount={userInfo.totalFollowing}
+          statsCount={userInfo.userInfo.totalFollowing}
           statsTitle="Seguindo"
         />
         <UserStats
-          statsCount={userInfo.totalFollowers}
+          statsCount={userInfo.userInfo.totalFollowers}
           statsTitle="Seguidores"
         />
         <UserBio
           name="Nicolas Cage"
-          bio={userInfo.bio}
-          // display={{ xs: 'flex', md: 'none' }}
+          bio={userInfo.userInfo.bio}
           display="flex"
         />
       </Grid.Row>
@@ -67,7 +65,7 @@ export default function UserScreen({ userInfo, posts: serverPosts }) {
         flexWrap="wrap"
         justifyContent="space-between"
       >
-        <UserPosts posts={posts} userID={userInfo.id} />
+        <UserPosts posts={serverPosts} userID={userInfo.userInfo.id} />
       </Box>
     </Grid.Container>
   );
@@ -75,12 +73,13 @@ export default function UserScreen({ userInfo, posts: serverPosts }) {
 
 UserScreen.propTypes = {
   userInfo: PropTypes.shape({
-    id: PropTypes.string,
-    bio: PropTypes.string,
-    totalPosts: PropTypes.number,
-    totalFollowing: PropTypes.number,
-    totalFollowers: PropTypes.number,
+    userInfo: PropTypes.shape({
+      id: PropTypes.string,
+      bio: PropTypes.string,
+      totalPosts: PropTypes.number,
+      totalFollowing: PropTypes.number,
+      totalFollowers: PropTypes.number,
+    }),
   }).isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
   posts: PropTypes.array.isRequired,
 };

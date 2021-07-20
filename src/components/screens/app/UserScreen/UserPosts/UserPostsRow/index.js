@@ -1,3 +1,5 @@
+/* eslint-disable import/prefer-default-export */
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import { ProfilePost } from '../../../../../commons/Post';
 import { Box } from '../../../../../foundation/layout/Box';

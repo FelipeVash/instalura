@@ -6,7 +6,6 @@ import { UserPostsRow } from './UserPostsRow';
 
 export function UserPosts({ posts, userID }) {
   const gridRowLength = 3;
-
   // eslint-disable-next-line react/prop-types
   const postsDividedByChunks = posts.reduce((chunk, item, index) => {
     const chunkIndex = Math.floor(index / gridRowLength);

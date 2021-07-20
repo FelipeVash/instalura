@@ -13,7 +13,7 @@ import { projetosGalera } from './projetosGalera';
 import { UserContext } from '../../../wrappers/WebsitePage/context/user';
 
 const FeedScreenWrapper = styled.div`
-  background-color: ${({ theme }) => theme.colors.background.main.color};
+  background-color: ${({ theme }) => theme.colors.modes.dark.backgroundColor};
   width: 100%;
   padding-bottom: 30px;
 `;

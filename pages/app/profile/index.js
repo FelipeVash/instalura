@@ -23,7 +23,7 @@ export async function getServerSideProps(ctx) {
   const dados = await userService.getProfilePage(ctx);
 
   const posts = dados.posts.filter((post) => post.user === user.id);
-  const { userInfo } = dados;
+  const userInfo = dados;
 
   return {
     props: {
