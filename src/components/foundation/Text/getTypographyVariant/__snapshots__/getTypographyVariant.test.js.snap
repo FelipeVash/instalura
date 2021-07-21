@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getTypographyVariant() when it is called in a component with breakpoint object variant returns the CSS for the listed breakpoints 1`] = `
+Array [
+  Array [
+    "@media screen and (min-width:",
+    "0",
+    "px){",
+    "font-size: 12px;",
+    "font-weight: 400;",
+    "line-height: 1;",
+    "}",
+  ],
+  Array [
+    "@media screen and (min-width:",
+    "768",
+    "px){",
+    "font-size: 14px;",
+    "font-weight: 400;",
+    "line-height: 1.25;",
+    "}",
+  ],
+]
+`;

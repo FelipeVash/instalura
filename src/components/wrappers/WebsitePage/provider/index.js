@@ -1,20 +1,22 @@
-/* eslint-disable react/no-unused-prop-types */
-/* eslint-disable no-undef */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { ThemeProvider } from 'styled-components';
-import theme from '../../../../theme';
 import GlobalStyle from '../../../../theme/GlobalStyle';
+import { AppThemeProvider } from '../../../../theme/context/AppThemeContext';
 
-export default function WebsiteGlobalProvider({ children }) {
+export default function WebsiteGlobalProvider({ children, serverThemeCookie }) {
   return (
-    <ThemeProvider theme={theme}>
+    <AppThemeProvider serverThemeCookie={serverThemeCookie}>
       <GlobalStyle />
       {children}
-    </ThemeProvider>
+    </AppThemeProvider>
   );
 }
 
 WebsiteGlobalProvider.propTypes = {
   children: PropTypes.node.isRequired,
+  serverThemeCookie: PropTypes.string,
+};
+
+WebsiteGlobalProvider.defaultProps = {
+  serverThemeCookie: undefined,
 };

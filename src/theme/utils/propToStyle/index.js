@@ -1,41 +1,23 @@
-/* eslint-disable import/prefer-default-export */
-import { css } from 'styled-components';
 import { breakpointsMedia } from '../breakpointsMedia';
 
-export function propToStyle(propName) {
+export default function propToStyle(propName) {
   return (props) => {
     const propValue = props[propName];
-
     if (typeof propValue === 'string' || typeof propValue === 'number') {
       return {
         [propName]: propValue,
       };
     }
-
     if (typeof propValue === 'object') {
-      return css`
-        ${breakpointsMedia({
-    ...(propValue.xs && {
-      xs: { [propName]: propValue.xs },
-    }),
-    ...(propValue.sm && {
-      sm: { [propName]: propValue.sm },
-    }),
-    ...(propValue.md && {
-      md: { [propName]: propValue.md },
-    }),
-    ...(propValue.lg && {
-      lg: { [propName]: propValue.lg },
-    }),
-    ...(propValue.xl && {
-      xl: { [propName]: propValue.xl },
-    }),
-  })}
-      `;
-    }
+      const propValueKeys = Object.keys(propValue);
+      const breakpointsMediaInput = {};
 
-    return {
-      [propName]: props[propName],
-    };
+      propValueKeys.forEach((breakpoint) => {
+        breakpointsMediaInput[breakpoint] = { [propName]: propValue[breakpoint] };
+      });
+
+      return breakpointsMedia(breakpointsMediaInput);
+    }
+    return undefined;
   };
 }

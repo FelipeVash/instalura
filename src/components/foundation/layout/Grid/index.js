@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
-import { propToStyle } from '../../../../theme/utils/propToStyle';
+import propToStyle from '../../../../theme/utils/propToStyle';
 
 const Container = styled.div`
     width: 100%;
@@ -26,6 +26,7 @@ const Container = styled.div`
     `,
   })}
   ${propToStyle('marginTop')}
+  ${propToStyle('paddingLeft')}
 `;
 
 // eslint-disable-next-line import/prefer-default-export
@@ -44,6 +45,7 @@ export const Grid = {
     ${propToStyle('marginBottom')}
     ${propToStyle('flexDirection')}
     ${propToStyle('alignItems')}
+    ${propToStyle('paddingLeft')}
   `,
   Col: styled.div`
     padding-right: 16px;
@@ -143,5 +145,6 @@ export const Grid = {
     ${propToStyle('flexDirection')}
     ${propToStyle('paddingRight')}
     ${propToStyle('order')}
+    ${propToStyle('paddingLeft')}
   `,
 };

@@ -7,6 +7,11 @@ export async function getStaticProps({ preview }) {
   return {
     props: {
       messages,
+      pageWrapperProps: {
+        pageBoxProps: {
+          backgroundColor: 'background',
+        },
+      },
     },
   };
 }

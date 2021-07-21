@@ -4,10 +4,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { render } from '@testing-library/react';
 import WebsiteGlobalProvider from '../../components/wrappers/WebsitePage/provider';
+import { WebsitePageContextProvider } from '../../components/wrappers/WebsitePage/context';
 
 const AllTheProviders = ({ children, ...props }) => (
   <WebsiteGlobalProvider {...props}>
-    {children}
+    <WebsitePageContextProvider>
+      {children}
+    </WebsitePageContextProvider>
   </WebsiteGlobalProvider>
 );
 
@@ -17,11 +20,8 @@ AllTheProviders.propTypes = {
 
 const customRender = (ui, options = {}) => {
   const Provider = (props) => <AllTheProviders {...props} {...options.providerProps} />;
-
   return render(ui, { wrapper: Provider, ...options });
 };
 
-// re-export everything
 export * from '@testing-library/react';
-// override render method
 export { customRender as render };

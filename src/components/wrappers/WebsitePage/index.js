@@ -1,37 +1,33 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import React from 'react';
+import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
 import get from 'lodash/get';
 import PropTypes from 'prop-types';
 import Footer from '../../commons/Footer';
 import Menu from '../../commons/Menu';
 import Modal from '../../commons/Modal';
 import { Box } from '../../foundation/layout/Box';
-import FormCadastro from '../../patterns/FormCadastro';
 import SEO from '../../commons/SEO';
 
-import { WebsitePageContext } from './context';
-
-export { WebsitePageContext } from './context';
+import { WebsitePageContextProvider } from './context';
 
 export default function WebsitePageWrapper({
   children,
   seoProps,
   pageBoxProps,
   menuProps,
+  footerProps,
   messages,
 }) {
-  const [isModalOpen, setModalState] = React.useState(false);
+  const theme = useContext(ThemeContext);
+
+  const {
+    backgroundColor, backgroundThemedImage, ...remainingPageBoxProps
+  } = pageBoxProps;
+  const hasThemedImage = Boolean(backgroundThemedImage);
 
   return (
-    <WebsitePageContext.Provider
-      value={{
-        teste: true,
-        toggleModalCadastro: () => {
-          setModalState(!isModalOpen);
-        },
-        getCMSContent: (cmsKey) => get(messages, cmsKey),
-      }}
-    >
+    <WebsitePageContextProvider messages={messages}>
       <SEO
         {...seoProps}
       />
@@ -40,27 +36,21 @@ export default function WebsitePageWrapper({
         display="flex"
         flex="1"
         flexDirection="column"
-        {...pageBoxProps}
+        justifyContent="space-between"
+        backgroundColor={get(theme.colors, `${backgroundColor}.color`)}
+        backgroundImage={hasThemedImage && `url(/images/theme/${theme.currentActive}${backgroundThemedImage})`}
+        {...remainingPageBoxProps}
       >
-        <Modal
-          isOpen={isModalOpen}
-          onClose={() => {
-            setModalState(false);
-          }}
-        >
-          {(propsDoModal) => (
-            <FormCadastro propsDoModal={propsDoModal} />
-          )}
-        </Modal>
+        <Modal />
         {menuProps.display && (
           <Menu
-            onCadastrarClick={() => setModalState(true)}
+            variant={menuProps.variant}
           />
         )}
         {children}
-        <Footer />
+        {footerProps.display && <Footer />}
       </Box>
-    </WebsitePageContext.Provider>
+    </WebsitePageContextProvider>
   );
 }
 
@@ -68,6 +58,10 @@ WebsitePageWrapper.defaultProps = {
   seoProps: {},
   pageBoxProps: {},
   menuProps: {
+    display: true,
+    variant: 'public',
+  },
+  footerProps: {
     display: true,
   },
   messages: {},
@@ -79,11 +73,17 @@ WebsitePageWrapper.propTypes = {
   }),
   menuProps: PropTypes.shape({
     display: PropTypes.bool,
+    variant: PropTypes.string,
+  }),
+  footerProps: PropTypes.shape({
+    display: PropTypes.bool,
   }),
   pageBoxProps: PropTypes.shape({
     backgroundImage: PropTypes.string,
+    backgroundThemedImage: PropTypes.string,
     backgroundRepeat: PropTypes.string,
     backgroundPosition: PropTypes.string,
+    backgroundColor: PropTypes.string,
   }),
   children: PropTypes.node.isRequired,
   // eslint-disable-next-line react/forbid-prop-types

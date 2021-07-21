@@ -1,50 +1,20 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
-import styled, { css } from 'styled-components';
-import { propToStyle } from '../../../theme/utils/propToStyle';
-import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
+import styled from 'styled-components';
+import propToStyle from '../../../theme/utils/propToStyle';
 import Link from '../../commons/Link';
-import { WebsitePageContext } from '../../wrappers/WebsitePage/context';
+import useWebsitePageContext from '../../wrappers/WebsitePage/context';
+import getTypographyVariant from './getTypographyVariant';
 
-export const TextStyleVariants = {
-  paragraph1: css`
-    font-size: ${({ theme }) => theme.typographyVariants.paragraph1.fontSize};
-    font-weight: ${({ theme }) => theme.typographyVariants.paragraph1.fontWeight};
-    line-height: ${({ theme }) => theme.typographyVariants.paragraph1.lineHeight};
-  `,
-  smallestException: css`
-    font-size: ${({ theme }) => theme.typographyVariants.smallestException.fontSize};
-    font-weight: ${({ theme }) => theme.typographyVariants.smallestException.fontWeight};
-    line-height: ${({ theme }) => theme.typographyVariants.smallestException.lineHeight};
-  `,
-  title: css`
-    ${({ theme }) => css`
-      font-size: ${theme.typographyVariants.titleXS.fontSize};
-      font-weight: ${theme.typographyVariants.titleXS.fontWeight};
-      line-height: ${theme.typographyVariants.titleXS.lineHeight};
-    `}
-    ${breakpointsMedia({
-    md: css`
-        ${({ theme }) => css`
-          font-size: ${theme.typographyVariants.title.fontSize};
-          font-weight: ${theme.typographyVariants.title.fontWeight};
-          line-height: ${theme.typographyVariants.title.lineHeight};
-        `}
-      `,
-  })}
-  `,
-};
+export { TextStyleVariantsMap } from './getTypographyVariant';
 
 const TextBase = styled.span`
-  ${(props) => TextStyleVariants[props.variant]}
+  ${getTypographyVariant()}
   color: ${(props) => get(props.theme, `colors.${props.color}.color`)};
-  
   ${propToStyle('textAlign')}
   ${propToStyle('marginBottom')}
   ${propToStyle('margin')}
-  ${propToStyle('color')}
 `;
 
 export default function Text({
@@ -55,7 +25,7 @@ export default function Text({
   cmsKey,
   ...props
 }) {
-  const websitePageContext = React.useContext(WebsitePageContext);
+  const websitePageContext = useWebsitePageContext();
 
   const componentContent = cmsKey
     ? websitePageContext.getCMSContent(cmsKey)
@@ -67,12 +37,14 @@ export default function Text({
         as={Link}
         href={href}
         variant={variant}
+        // eslint-disable-next-line react/jsx-props-no-spreading
         {...props}
       >
         {componentContent}
       </TextBase>
     );
   }
+
   return (
     <TextBase
       as={tag}
@@ -91,7 +63,7 @@ export default function Text({
 Text.propTypes = {
   tag: PropTypes.string,
   href: PropTypes.string,
-  variant: PropTypes.string,
+  variant: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   children: PropTypes.node,
   cmsKey: PropTypes.string,
 };
@@ -103,7 +75,3 @@ Text.defaultProps = {
   href: '',
   cmsKey: undefined,
 };
-
-// p
-// h1, h2 ... h6
-// span

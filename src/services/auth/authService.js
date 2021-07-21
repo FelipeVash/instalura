@@ -5,13 +5,12 @@ import { HttpClient } from '../../infra/http/HttpClient';
 import { isStagingEnv } from '../../infra/env/isStagingEnv';
 
 const BASE_URL = isStagingEnv
-  // Back End de Dev
-  ? 'https://instalura-api-git-master-omariosouto.vercel.app'
-  // Back end de Prod
-  : 'https://instalura-api.omariosouto.vercel.app';
+  // Back End de DEV
+  ? 'https://instalura-api.vercel.app'
+  // Back End de PROD
+  : 'https://instalura-api.vercel.app';
 
-// eslint-disable-next-line import/prefer-default-export
-export const authService = (ctx) => {
+const authService = (ctx) => {
   const cookies = parseCookies(ctx);
   const token = cookies[LOGIN_COOKIE_APP_TOKEN];
 
@@ -45,3 +44,5 @@ export const authService = (ctx) => {
     },
   };
 };
+
+export default authService;
