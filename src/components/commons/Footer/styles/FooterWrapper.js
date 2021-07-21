@@ -2,7 +2,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
-import { TextStyleVariants } from '../../../foundation/Text';
+import { TextStyleVariantsMap } from '../../../foundation/Text';
 
 const FooterWrapper = styled.footer`
   padding: 14px;

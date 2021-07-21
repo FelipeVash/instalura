@@ -1,7 +1,6 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import Head from 'next/head';
 import React from 'react';
-import ThemeSwitch from '../src/components/commons/Menu/ThemeSwitch';
 import WebsiteGlobalProvider from '../src/components/wrappers/WebsitePage/provider';
 
 // eslint-disable-next-line react/prop-types
