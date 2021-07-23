@@ -5,8 +5,8 @@ export default class LoginScreenPageObject {
   }
 
   fillLoginForm({ user, password }) {
-    this.cy.get('#formLogin input[name="user"]').type(user);
-    this.cy.get('#formLogin input[name="password"]').type(password);
+    this.cy.get('#formLogin input[name="usuario"]').type(user);
+    this.cy.get('#formLogin input[name="senha"]').type(password);
     return this;
   }
 
