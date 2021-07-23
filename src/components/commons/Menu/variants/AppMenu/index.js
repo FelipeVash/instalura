@@ -112,6 +112,10 @@ export default function AppMenu({ user }) {
   );
 }
 
+AppMenu.defaultProps = {
+  user: '',
+};
+
 AppMenu.propTypes = {
-  user: PropTypes.string.isRequired,
+  user: PropTypes.string,
 };
