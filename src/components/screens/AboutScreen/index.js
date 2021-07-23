@@ -41,8 +41,3 @@ export default function AboutScreen() {
     </Box>
   );
 }
-
-AboutScreen.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  messages: PropTypes.object.isRequired,
-};
