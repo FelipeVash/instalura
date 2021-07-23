@@ -1,12 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Box } from '../../foundation/layout/Box';
 import { Grid } from '../../foundation/layout/Grid';
 import Text from '../../foundation/Text';
 
 export { getContent } from './getContent';
 
-export default function AboutScreen({ messages }) {
+export default function AboutScreen() {
   return (
     <Box
       display="flex"
@@ -26,14 +25,14 @@ export default function AboutScreen({ messages }) {
             <Text
               variant="title"
               tag="h2"
-              color="tertiary.main"
+              color="primary.main"
               cmsKey="pageSobre.pageTitle"
             />
-
-            <Box
-              dangerouslySetInnerHTML={{
-                __html: messages.pageSobre.pageDescription,
-              }}
+            <Text
+              variant="text"
+              tag="p"
+              color="tertiary.main"
+              cmsKey="pageSobre.pageDescription"
             />
           </Grid.Col>
         </Grid.Row>
@@ -41,8 +40,3 @@ export default function AboutScreen({ messages }) {
     </Box>
   );
 }
-
-AboutScreen.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  messages: PropTypes.object.isRequired,
-};

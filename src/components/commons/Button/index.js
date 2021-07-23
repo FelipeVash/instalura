@@ -4,9 +4,9 @@ import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import get from 'lodash/get';
 import Link from '../Link';
-import { TextStyleVariants } from '../../foundation/Text';
+import { TextStyleVariantsMap } from '../../foundation/Text';
 import { breakpointsMedia } from '../../../theme/utils/breakpointsMedia';
-import { propToStyle } from '../../../theme/utils/propToStyle';
+import propToStyle from '../../../theme/utils/propToStyle';
 
 const ButtonGhost = css`
   color: ${({ theme, variant }) => get(theme, `colors.${variant}.contrastText`)};
@@ -29,11 +29,11 @@ const ButtonWrapper = styled.button`
   border-radius: ${({ theme }) => theme.borderRadius};
   ${breakpointsMedia({
     xs: css`
-      ${TextStyleVariants.smallestException}
+      ${TextStyleVariantsMap.smallestException}
     `,
     md: css`
       padding: 12px 43px;
-      ${TextStyleVariants.paragraph1}
+      ${TextStyleVariantsMap.paragraph1}
     `,
   })}
 
@@ -77,3 +77,13 @@ Button.propTypes = {
   href: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
+
+export const IconButton = styled(Button)`
+  padding: 0;
+  font-size: 0;
+  background-color: transparent;
+
+  img {
+    height: 32px;
+  }
+`;

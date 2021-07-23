@@ -1,33 +1,45 @@
-import React from 'react';
-import { authService } from '../../src/services/auth/authService';
-import { userService } from '../../src/services/user/userService';
+import websitePageHOC from '../../src/components/wrappers/WebsitePage/hoc';
+import ProfileScreen from '../../src/components/screens/app/ProfileScreen';
+import authService from '../../src/services/auth/authService';
+import userService from '../../src/services/user/userService';
+import { getUserData } from '../api/user';
 
-export default function ProfilePage(props) {
-  return (
-    <div>
-      Página de Profile!
-      <pre>
-        {JSON.stringify(props, null, 4)}
-      </pre>
-      <img src="https://media.giphy.com/media/bn0zlGb4LOyo8/giphy.gif" alt="Nicolas Cage" />
-    </div>
-  );
-}
+export default websitePageHOC(ProfileScreen, {
+  pageWrapperProps: {
+    menuProps: {
+      display: true,
+      variant: 'app',
+    },
+    footerProps: {
+      display: true,
+    },
+    pageBoxProps: {
+      backgroundColor: 'background.main',
+    },
+  },
+});
 
 export async function getServerSideProps(ctx) {
   const auth = authService(ctx);
   const hasActiveSession = await auth.hasActiveSession();
 
   if (hasActiveSession) {
-    const session = await auth.getSession();
-    const profilePage = await userService.getProfilePage(ctx);
+    const session = await authService(ctx).getSession();
+
+    const user = await getUserData(session.id);
+    const posts = await userService.getPostsData(ctx);
     return {
       props: {
         user: {
+          ...user,
           ...session,
-          ...profilePage.user,
         },
-        posts: profilePage.posts,
+        posts,
+        pageWrapperProps: {
+          seoProps: {
+            headTitle: user.username,
+          },
+        },
       },
     };
   }

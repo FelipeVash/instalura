@@ -1,17 +1,19 @@
 import React from 'react';
+import { Logo } from '../../../../theme/Logo';
 import Link from '../../../commons/Link';
 import { Box } from '../../../foundation/layout/Box';
 import { Grid } from '../../../foundation/layout/Grid';
 import Text from '../../../foundation/Text';
 import LoginForm from '../../../patterns/FormLogin';
-import { WebsitePageContext } from '../../../wrappers/WebsitePage';
-import { Logo } from '../../../../theme/Logo';
+import FormRegister from '../../../patterns/FormCadastro';
+import useWebsitePageContext from '../../../wrappers/WebsitePage/context';
 
 export default function LoginScreen() {
-  const websitePageContext = React.useContext(WebsitePageContext);
+  const websitePageContext = useWebsitePageContext();
 
   return (
     <Grid.Container
+      as="main"
       display="flex"
       flex="1"
       alignItems="center"
@@ -47,19 +49,23 @@ export default function LoginScreen() {
           <Text
             variant="paragraph1"
             tag="p"
-            color="tertiary.light"
+            color="tertiary.main"
             textAlign="center"
           >
             {'Não tem uma conta? '}
             <Link
               href="/"
-              color="secondary.main"
+              color="#D7385E"
               onClick={(event) => {
                 event.preventDefault();
-                websitePageContext.toggleModalCadastro();
+                websitePageContext.toggleModal(<FormRegister />);
               }}
             >
-              Cadastre-se
+              <Text
+                color="#D7385E"
+              >
+                Cadastre-se
+              </Text>
             </Link>
           </Text>
         </Grid.Col>
@@ -70,7 +76,7 @@ export default function LoginScreen() {
             justifyContent="center"
           >
             <img
-              aling-items="center"
+              align="center"
               src="https://bootcamp-alura-01-git-modulo01.omariosouto.vercel.app/images/phones.png"
               alt="Telefones mostrando as páginas internas do app"
             />

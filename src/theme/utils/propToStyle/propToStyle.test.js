@@ -1,4 +1,4 @@
-import { propToStyle } from './index';
+import propToStyle from './index';
 
 describe('propToStyle()', () => {
   describe('when receives an simple argument', () => {
