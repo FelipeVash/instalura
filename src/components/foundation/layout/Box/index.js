@@ -22,5 +22,6 @@ export const Box = styled.div`
     ${propToStyle('marginTop')}
     ${propToStyle('marginBottom')}
     ${propToStyle('marginRight')}
+    ${propToStyle('alignItems')}
     ${({ theme, borderRadiusTheme }) => borderRadiusTheme && `border-radius: ${theme.borderRadius}`};
 `;

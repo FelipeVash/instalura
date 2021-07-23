@@ -12,7 +12,7 @@ export async function getUserData(id) {
       name: userData.name,
       createdAt: userData.createdAt,
       updatedAt: userData.updatedAt,
-      avatar: 'https://github.com/felipevash.png', // placeholder
+      avatar: `https://github.com/${userData.username}.png`, // placeholder
       followers: Math.floor(Math.random() * 1000000), // placeholder value
       following: Math.floor(Math.random() * 1000), // placeholder value
     };

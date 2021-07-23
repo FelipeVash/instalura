@@ -45,7 +45,7 @@ const OptionButton = styled(Button)`
   }
 
   ${({ theme, selected }) => (selected && css`
-    background-color: ${theme.colors.primary.color};
+    background-color: ${theme.colors.primary.main.color};
     color: ${theme.colors.primary.contrast};
   `)}
 `;
@@ -142,7 +142,6 @@ export default function FilterOptions({ filterClass, setFilterClass, imgSrc }) {
             name={filter.name}
             onClick={() => setFilterClass(filter.classString)}
             selected={filterClass === filter.classString}
-            ghost
           >
             <PostImage imgSrc={imgSrc} filterClass={filter.classString} alt="Preview do filtro" width="88px" />
             <Text

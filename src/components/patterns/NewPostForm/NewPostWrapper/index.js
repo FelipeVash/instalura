@@ -9,10 +9,8 @@ const NewPostWrapper = styled.form`
   max-width: 100vw;
 
   border-radius: ${({ theme }) => theme.borderRadius};
-  ${({ theme }) => (theme.currentActive === 'dark' && css`
-    border: 1px solid ${theme.colors.borders.color};
-    box-shadow: 0 10px 20px ${theme.colors.borders.color};
-  `)}
+  border: 1px solid white;
+  box-shadow: 0 10px 20px black;
 
   ${breakpointsMedia({
     md: css`
@@ -21,7 +19,7 @@ const NewPostWrapper = styled.form`
   })}
 
   align-self: center;
-  background-color: ${({ theme }) => theme.colors.background.color};
+  background-color: #191919;
   padding: 56px 0 32px 0;
 `;
 

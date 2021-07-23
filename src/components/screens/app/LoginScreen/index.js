@@ -9,7 +9,7 @@ import FormRegister from '../../../patterns/FormCadastro';
 import useWebsitePageContext from '../../../wrappers/WebsitePage/context';
 
 export default function LoginScreen() {
-  const websitePageContext = useWebsitePageContext;
+  const websitePageContext = useWebsitePageContext();
 
   return (
     <Grid.Container
@@ -49,19 +49,23 @@ export default function LoginScreen() {
           <Text
             variant="paragraph1"
             tag="p"
-            color="tertiary"
+            color="tertiary.main"
             textAlign="center"
           >
             {'Não tem uma conta? '}
             <Link
               href="/"
-              color="secondary"
+              color="#D7385E"
               onClick={(event) => {
                 event.preventDefault();
                 websitePageContext.toggleModal(<FormRegister />);
               }}
             >
-              Cadastre-se
+              <Text
+                color="#D7385E"
+              >
+                Cadastre-se
+              </Text>
             </Link>
           </Text>
         </Grid.Col>

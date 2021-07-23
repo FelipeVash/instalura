@@ -1,27 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import { breakpointsMedia } from '../../../../../theme/utils/breakpointsMedia';
+import styled from 'styled-components';
 import Text from '../../../../foundation/Text';
 
 const UserIdenticationWrapper = styled.div`
-  display: inline-block;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  width:fit-content;
+  padding: 10px;
   width:100%;
-  ${breakpointsMedia({
-    md: css`
-      margin-left: 2rem;
-    `,
-    xl: css`
-      margin-left: 4rem;
-    `,
-  })};
-
   h2 {
-    margin-bottom: 0;
+    margin: 0;
+    width: 100%;
   }
 
   p {
-    margin-top: 0;
+    margin: 0;
+    width: 100%;
   }
 `;
 

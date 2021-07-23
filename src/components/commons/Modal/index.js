@@ -14,9 +14,10 @@ const ModalWrapper = styled.div`
   bottom: 0;
   left: 0;
   margin: auto;
-  overflow: scroll;
   transition: 300ms;
   z-index: 100;
+  width: 100%;
+  height:100vh;
   ${({ isOpen }) => {
     if (isOpen) {
       return css`
@@ -33,7 +34,7 @@ const ModalWrapper = styled.div`
 
 const LockScroll = createGlobalStyle`
   body {
-    overflow: hidden;
+    overflow: visible;
   }
 `;
 

@@ -9,6 +9,7 @@ const PostImageWrapper = styled.figure`
   margin: 0;
   font-size: 0;
   border-radius: 15px;
+  border: solid white;
 
   ${({ isPlaceholder }) => isPlaceholder && css`
     background-color: #d4d4d4;

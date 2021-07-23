@@ -12,16 +12,17 @@ const ImageUrlFormWrapper = styled.div`
   padding-left: 24px;
 
   button {
+    background-color: #D7385E;
     font-size: 0;
     position: absolute;
     top: 0;
     right: 0;
     margin-right: 24px;
-    padding: 12px;
+    padding: 10px;
   }
   
   p {
-    color: ${({ theme }) => theme.colors.tertiary.color}
+    color: white;
   }
 `;
 

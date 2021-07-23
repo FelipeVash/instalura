@@ -26,14 +26,14 @@ export default function AboutScreen({ messages }) {
             <Text
               variant="title"
               tag="h2"
-              color="tertiary.main"
+              color="primary.main"
               cmsKey="pageSobre.pageTitle"
             />
-
-            <Box
-              dangerouslySetInnerHTML={{
-                __html: messages.pageSobre.pageDescription,
-              }}
+            <Text
+              variant="text"
+              tag="p"
+              color="tertiary.main"
+              cmsKey="pageSobre.pageDescription"
             />
           </Grid.Col>
         </Grid.Row>

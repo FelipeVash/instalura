@@ -151,7 +151,7 @@ export default function NewPostForm() {
           padding="0 24px"
         >
           <Button
-            variant="primary"
+            variant="primary.main"
             fullWidth
             onClick={onNext}
             disabled={isDisabled}

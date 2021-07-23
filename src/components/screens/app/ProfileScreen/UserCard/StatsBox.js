@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled, { css } from 'styled-components';
-import { breakpointsMedia } from '../../../../../theme/utils/breakpointsMedia';
+import styled from 'styled-components';
 import Text from '../../../../foundation/Text';
 
 function formatNumber(number) {
@@ -12,27 +11,18 @@ function formatNumber(number) {
 
 const StatsBox = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  height: 88px;
-
-  ${breakpointsMedia({
-    md: { paddingLeft: '0' },
-  })}
+  width: fit-content;
+  padding: 10px;
 `;
 
 const StatWrapper = styled.div`
-  margin-left: 0.5rem;
-
-  ${breakpointsMedia({
-    md: css`
-      margin-left: 2rem;
-    `,
-    xl: css`
-      margin-left: 4rem;
-    `,
-  })};
-
+  width: 100%;
+  justify-content: flex-start;
+  margin-right: 10px;
   h2 {
     margin: 0;
   }

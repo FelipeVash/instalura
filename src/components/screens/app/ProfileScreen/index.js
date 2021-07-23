@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { Box } from '../../../foundation/layout/Box';
 import { Grid } from '../../../foundation/layout/Grid';
 import PostImage from '../../../commons/PostImage';
 import { breakpointsMedia } from '../../../../theme/utils/breakpointsMedia';
@@ -29,8 +30,9 @@ const PostsList = styled.ul`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-items: flex-start;
   margin: 0;
-  padding-top: 40px;
+  padding: 10px;
   border:solid white;
   border-radius: 15px;
   width: 100%;
@@ -48,66 +50,52 @@ export default function ProfileScreen({ user, posts }) {
   }, [newPost]);
 
   return (
-    <Grid.Container
+    <Box
       as="main"
-      flex={1}
+      backgroundColor="#292929"
+      justifyContent="center"
+      alignItems="center"
       width="100%"
+      padding="0px 10px 10px 10px"
     >
-      <Grid.Row
-        diplay="flex"
-        width="100%"
-      >
-        <Grid.Col
-          width="100%"
-          paddingLeft="0"
-          paddingRight="0"
-        >
-          <UserCard
-            user={{
+      <UserCard
+        user={{
               name: user.name,
               username: user.username,
               avatar: user.avatar,
               followers: user.followers,
               following: user.following,
             }}
-            numberOfPosts={posts.length}
-          />
-        </Grid.Col>
-      </Grid.Row>
+        numberOfPosts={posts.length}
+      />
       <section name="User posts">
-        <Grid.Row>
-          <PostsList>
-            {postList.map((post, index) => (
-              <PostCard
-                as="li"
-                value={{ xs: 4, md: 3 }}
-                offset={{
-                  xs: 0,
-                  md: (index === 0 || index % 3 === 0) ? 1.5 : 0,
-                }}
-                key={post._id}
-                data={`description-${post.description}`}
-              >
-                <div styles={{ width: '100%' }}>
-                  <PostImage
-                    imgSrc={post.photoUrl}
-                    filterClass={post.filter}
-                    alt="Imagem do post"
-                  />
-                  <PostLikeButton
-                    postList={postList}
-                    post={post}
-                    index={index}
-                    user={user}
-                    setPostList={setPostList}
-                  />
-                </div>
-              </PostCard>
+        <PostsList>
+          {postList.map((post, index) => (
+            <PostCard
+              as="li"
+              value={{ xs: 4, md: 2 }}
+              key={post._id}
+              data={`description-${post.description}`}
+            >
+              <div styles={{ width: '100%' }}>
+                <PostImage
+                  imgSrc={post.photoUrl}
+                  filterClass={post.filter}
+                  alt="Imagem do post"
+                />
+                <PostLikeButton
+                  postList={postList}
+                  post={post}
+                  index={index}
+                  user={user}
+                  setPostList={setPostList}
+                />
+              </div>
+            </PostCard>
             ))}
-          </PostsList>
-        </Grid.Row>
+        </PostsList>
       </section>
-    </Grid.Container>
+    </Box>
   );
 }
 

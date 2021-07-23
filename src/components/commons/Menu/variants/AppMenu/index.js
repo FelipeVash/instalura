@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import styled, { ThemeContext } from 'styled-components';
+import PropTypes from 'prop-types';
 import { Box } from '../../../../foundation/layout/Box';
 import { Logo } from '../../../../../theme/Logo';
 import { breakpointsMedia } from '../../../../../theme/utils/breakpointsMedia';
@@ -70,7 +71,7 @@ const AvatarImage = styled.img`
   })}
 `;
 
-export default function AppMenu() {
+export default function AppMenu({ user }) {
   const theme = useContext(ThemeContext);
   const { toggleModal } = useWebsitePageContext();
 
@@ -78,13 +79,16 @@ export default function AppMenu() {
     <Box
       as="header"
       backgroundColor={theme.colors.background.color}
-      borderBottom={theme.currentActive === 'light'
-        ? `1px solid ${theme.colors.borders.color}`
-        : 'initial'}
+      justifyContent="center"
+      alignItems="center"
+      width="100%"
+      padding="10px"
     >
       <AppMenuWrapper>
         <AppMenuWrapper.LeftSide>
-          <Logo size="large" />
+          <a href="/">
+            <Logo size="large" />
+          </a>
         </AppMenuWrapper.LeftSide>
         <AppMenuWrapper.RightSide>
           <FormSearch />
@@ -92,14 +96,22 @@ export default function AppMenu() {
             name="newPostBtn"
             onClick={() => toggleModal(<NewPostForm />)}
           >
-            <img src={`/icons/theme/${theme.currentActive}/postIcon.svg`} alt="Post" />
+            <img src="/icons/theme/light/postIcon.svg" alt="Post" />
           </PostButton>
           <OpenSearchButton><img src="/icons/search.svg" alt="Abrir pesquisa" /></OpenSearchButton>
-          <HomeButton><img src={`/icons/theme/${theme.currentActive}/home.svg`} alt="Home" /></HomeButton>
-          <HeartButton><img src={`/icons/theme/${theme.currentActive}/heart.svg`} alt="Like" /></HeartButton>
-          <AvatarImage src="https://github.com/felipevash.png" alt="Avatar" />
+          <a href="/app/feed">
+            <HomeButton><img src="/icons/theme/light/home.svg" alt="Home" /></HomeButton>
+          </a>
+          <HeartButton><img src="/icons/theme/light/heart.svg" alt="Like" /></HeartButton>
+          <a href="/app/profile">
+            <AvatarImage src={`https://github.com/${user}.png`} alt="Avatar" />
+          </a>
         </AppMenuWrapper.RightSide>
       </AppMenuWrapper>
     </Box>
   );
 }
+
+AppMenu.propTypes = {
+  user: PropTypes.string.isRequired,
+};

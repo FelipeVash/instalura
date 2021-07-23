@@ -18,6 +18,7 @@ export default function WebsitePageWrapper({
   menuProps,
   footerProps,
   messages,
+  user,
 }) {
   const theme = useContext(ThemeContext);
 
@@ -36,7 +37,7 @@ export default function WebsitePageWrapper({
         display="flex"
         flex="1"
         flexDirection="column"
-        justifyContent="space-between"
+        justifyContent="flex-start"
         backgroundColor={get(theme.colors, `${backgroundColor}.color`)}
         backgroundImage={hasThemedImage && `url(/images/theme/${theme.currentActive}${backgroundThemedImage})`}
         {...remainingPageBoxProps}
@@ -45,6 +46,7 @@ export default function WebsitePageWrapper({
         {menuProps.display && (
           <Menu
             variant={menuProps.variant}
+            user={user.username}
           />
         )}
         {children}
@@ -65,6 +67,7 @@ WebsitePageWrapper.defaultProps = {
     display: true,
   },
   messages: {},
+  user: {},
 };
 
 WebsitePageWrapper.propTypes = {
@@ -88,4 +91,6 @@ WebsitePageWrapper.propTypes = {
   children: PropTypes.node.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   messages: PropTypes.object,
+  // eslint-disable-next-line react/forbid-prop-types
+  user: PropTypes.object,
 };

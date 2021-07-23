@@ -3,59 +3,53 @@ import { breakpointsMedia } from '../../../../../../theme/utils/breakpointsMedia
 
 const AppMenuWrapper = styled.nav`
   align-items: center;
-  display: flex;
-  font-family: 'Rubik', sans-serif;
-  justify-content: space-between;
-  padding: 12px 28px;
+  background-color: #191919;
   border: 2px solid white;
   border-radius: 15px;
+  display: flex;
+  font-family: 'Rubik', sans-serif;
+  padding: 15px 15px;
+  justify-content: space-between;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
   z-index: 10;
-  background-color: #191919;
 
   ${breakpointsMedia({
     md: css`
-      position: initial;
       border-radius: 15px;
-      justify-content: flex-start;
-      margin-left: auto;
-      margin-right: auto;
+      justify-content: center;
+      padding: 15px 15px;
+      position: initial;
       width: 100%;
-      padding: 27px 16px;
-      max-width: 768px;
-    `,
-    lg: css`
-      max-width: 1160px; 
-    `,
-    xl: css`
-      max-width: 1222px;
     `,
   })}
 `;
 
 AppMenuWrapper.LeftSide = styled.div`
-  margin: 0;
-  display: flex;
-  width:50%;
+  display: none;
   ${breakpointsMedia({
     md: css`
-      display: flex;
       align-items: center;
+      justify-content: center;
+      display: flex;
+      width:100%;
+      height: fit-content;
     `,
   })}
 `;
 
 AppMenuWrapper.RightSide = styled.div`
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex: 1;
-  justify-content: space-evenly;
   align-items: center;
-
+  justify-content: space-evenly;
+  display: flex;
+  width:100%;
+  height: fit-content;
   ${breakpointsMedia({
-    md: {
-      justifyContent: 'flex-end',
-    },
+    md: css`
+      justify-content: flex-start;
+    `,
   })}
 `;
 

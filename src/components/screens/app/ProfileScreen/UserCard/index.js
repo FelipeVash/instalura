@@ -1,38 +1,40 @@
 /* eslint-disable indent */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { Box } from '../../../../foundation/layout/Box';
 import { breakpointsMedia } from '../../../../../theme/utils/breakpointsMedia';
 import StatsBox from './StatsBox';
 import UserIdentification from './UserIdentification';
 
-const baseImgHeight = 88;
-
 const UserCardWrapper = styled.section`
+  align-items: center;
   display:flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 100%;
-  margin: 12px auto;
+  justify-content: space-evenly;
   background-color: #191919;
   border: solid white;
   border-radius: 15px;
+  margin-bottom: 1%;
+  padding:15px;
+  width: 100%;
   ${breakpointsMedia({
-    md: {
-      margin: '64px 0',
-    },
-  })}
-
+      md: css`
+        justify-content: center;
+      `,
+    })}
   img {
+    border: solid white;
     border-radius: 50%;
-    height: ${baseImgHeight}px;
+    height: fit-content;
     object-fit: cover;
-    margin-right: 9px;
-
+    width: 33%;
     ${breakpointsMedia({
-      md: {
-        height: `${2 * baseImgHeight}px`,
-      },
+      md: css`
+        width: 20%;
+      `,
+      lg: css`
+        width: 15%;
+      `,
     })}
   }
 `;
@@ -46,20 +48,28 @@ export default function UserCard({ numberOfPosts, user }) {
           name={user.name}
           username={user.username}
         />
-        <StatsBox.Stat
-          statValue={numberOfPosts}
-          statName="Publicações"
-        />
+        <Box
+          display="flex"
+          flexDirection="row"
+          padding="10px"
+          justifyContent="flex-start"
+          width="100%"
+        >
+          <StatsBox.Stat
+            statValue={numberOfPosts}
+            statName="Publicações"
+          />
 
-        <StatsBox.Stat
-          statValue={user.following}
-          statName="Seguindo"
-        />
+          <StatsBox.Stat
+            statValue={user.following}
+            statName="Seguindo"
+          />
 
-        <StatsBox.Stat
-          statValue={user.followers}
-          statName="Seguidores"
-        />
+          <StatsBox.Stat
+            statValue={user.followers}
+            statName="Seguidores"
+          />
+        </Box>
       </StatsBox>
     </UserCardWrapper>
   );
