@@ -6,7 +6,7 @@ import Text from '../../foundation/Text';
 
 export { getContent } from './getContent';
 
-export default function AboutScreen({ messages }) {
+export default function AboutScreen() {
   return (
     <Box
       display="flex"

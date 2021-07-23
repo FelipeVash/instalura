@@ -33,6 +33,7 @@ export async function getServerSideProps(ctx) {
     const friendData = await getUserData('5fe9035f5bb019a3c62572da');
     const friendPosts = await userService.getFriendPosts();
     const userFollowing = await fetch(`https://api.github.com/users/${user.username}/following`);
+
     const followingConvert = await userFollowing.json();
 
     return {
